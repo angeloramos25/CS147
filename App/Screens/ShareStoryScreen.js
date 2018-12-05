@@ -54,7 +54,11 @@ export default class ShareStoryScreen extends React.Component {
           </TouchableOpacity>
           <Text style={styles.headerText}>Share Story</Text>
         </View>
-        <StoryBanner />
+        <StoryBanner
+          title={this.props.navigation.state.params.title}
+          color={this.props.navigation.state.params.color}
+          image={this.props.navigation.state.params.image}
+          />
         <View style={styles.listContainer}>
           <Text style={styles.bodyText}>Who do you want to share with?</Text>
           <FlatList

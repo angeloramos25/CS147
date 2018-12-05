@@ -42,8 +42,8 @@ export default class BrowseStoriesScreen extends React.Component {
     ]
   }
 
-  onStoryPress() {
-    this.props.navigation.navigate("BrowseStoryDetailsScreen");
+  onStoryPress(story) {
+    this.props.navigation.navigate("BrowseStoryDetailsScreen", story);
   }
 
   render() {
@@ -71,7 +71,7 @@ export default class BrowseStoriesScreen extends React.Component {
                   title={item.title}
                   image={item.image}
                   color={item.color}
-                  onStoryPress={this.onStoryPress.bind(this)}
+                  onStoryPress={this.onStoryPress.bind(this,item)}
                   />
                 <Text style={styles.authorText}>by {item.author}</Text>
               </View>

@@ -9,8 +9,6 @@ import InfoSquare from '../Components/InfoSquare';
 export default class MyStoryDetailsScreen extends React.Component {
 
   render() {
-    console.log(this.props.navigation.state.params);
-    const {color} = ;
     return (
       <View style={styles.container}>
         <View style={styles.headerView}>
@@ -22,6 +20,7 @@ export default class MyStoryDetailsScreen extends React.Component {
         <StoryBanner
           title={this.props.navigation.state.params.title}
           color={this.props.navigation.state.params.color}
+          image={this.props.navigation.state.params.image}
           />
         <View style={styles.infoContainer}>
           <InfoSquare
@@ -34,13 +33,13 @@ export default class MyStoryDetailsScreen extends React.Component {
             color={this.props.navigation.state.params.color}/>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.onViewComments} style={[styles.button, {backgroundColor: color}]}>
+          <TouchableOpacity onPress={this.onViewComments} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
             <Text style={styles.buttonText}>View Comments</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("ShareStoryScreen")} style={[styles.button, {backgroundColor: color}]}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("ShareStoryScreen",this.props.navigation.state.params)} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
             <Text style={styles.buttonText}>Share Story</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={this.onReadStory} style={[styles.button, {backgroundColor: color}]}>
+          <TouchableOpacity onPress={this.onReadStory} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
             <Text style={styles.buttonText}>Read Story</Text>
           </TouchableOpacity>
         </View>
@@ -91,7 +90,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   button: {
-    backgroundColor: '#5CBD9B',
     borderRadius: 5,
     height: 60,
     marginBottom: 10,

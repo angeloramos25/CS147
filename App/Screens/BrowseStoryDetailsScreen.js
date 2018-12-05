@@ -17,17 +17,33 @@ export default class BrowseStoryDetailsScreen extends React.Component {
         </TouchableOpacity>
         <Text style={styles.headerText}>Story Details</Text>
       </View>
-        <StoryBanner />
+        <StoryBanner
+          title={this.props.navigation.state.params.title}
+          color={this.props.navigation.state.params.color}
+          image={this.props.navigation.state.params.image}
+          />
         <View style={styles.infoContainer}>
-          <InfoSquare title='8' subtitle='pages'/>
-          <InfoSquare title='Oct 12' subtitle='created'/>
+          <InfoSquare
+            title='8'
+            subtitle='pages'
+            color={this.props.navigation.state.params.color}/>
+          <InfoSquare
+            title='Oct 12'
+            subtitle='created'
+            color={this.props.navigation.state.params.color}/>
         </View>
         <View style={styles.infoContainer}>
-          <InfoSquare title='8th' subtitle='grade'/>
-          <InfoSquare title='Mark' subtitle='author'/>
+          <InfoSquare
+            title='8th'
+            subtitle='grade'
+            color={this.props.navigation.state.params.color}/>
+          <InfoSquare
+            title='Mark'
+            subtitle='author'
+            color={this.props.navigation.state.params.color}/>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.onViewComments} style={styles.button}>
+          <TouchableOpacity onPress={this.onViewComments} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
             <Text style={styles.buttonText}>Read Story</Text>
           </TouchableOpacity>
         </View>

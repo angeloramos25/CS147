@@ -32,7 +32,7 @@ export default class MyStoriesScreen extends React.Component {
         id: 1,
       },
       {
-        title: 'Frustrated with Everything',
+        title: 'Feeling Down',
         image: Images.desk,
         date: 'Oct 9',
         color: '#A29BFE',

@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 import Metrics from '../Themes/Metrics';
 
-const StoryBanner = () => {
+const StoryBanner = (props) => {
   return (
-    <View style={[styles.bannerView, {backgroundColor: this.props.color}]}>
+    <View style={[styles.bannerView, {backgroundColor: props.color}]}>
       <View style={{width: 0, flexGrow: 1, marginLeft: 20}}>
-        <Text style={styles.bannerText} numberOfLines={2}>{this.props.title}</Text>
+        <Text style={styles.bannerText} numberOfLines={2}>{props.title}</Text>
       </View>
       <Image
-        source={require('../Images/school1.png')}
+        source={props.image}
         resizeMode={'cover'}
         style={styles.bannerImage}
       />
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   bannerImage: {
     width: Metrics.screenWidth * 0.45,
-    height: Metrics.screenWidth * 0.4,
+    height: Metrics.screenWidth * 0.3,
     marginRight: 20,
   },
 });
