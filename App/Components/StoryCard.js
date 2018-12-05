@@ -11,12 +11,12 @@ export default class StoryCard extends React.Component {
           <TouchableOpacity onPress={this.props.onStoryPress.bind(this)}>
           <View style={styles.topView}>
             <Image
-              source={Images.school1}
+              source={this.props.image}
               resizeMode="contain"
               style={styles.image}
               />
           </View>
-          <View style={styles.bottomView}>
+          <View style={[styles.bottomView, {backgroundColor: this.props.color}]}>
             <Text style={styles.titleText}>{this.props.title}</Text>
           </View>
           </TouchableOpacity>
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 5,
     backgroundColor: '#F5F5F5',
-    width: Metrics.screenWidth*0.45,
-    height: Metrics.screenWidth*0.5,
+    width: Metrics.screenWidth*0.42,
+    height: Metrics.screenWidth*0.45,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   image: {
-    width: Metrics.screenWidth*0.4,
-    height: Metrics.screenWidth*0.35,
+    width: Metrics.screenWidth*0.35,
+    height: Metrics.screenWidth*0.3,
   },
   titleText: {
     color: '#fff',
@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
   },
   bottomView: {
     flex: 1,
-    backgroundColor: '#5CBD9B',
-    width: Metrics.screenWidth*0.45,
+    width: Metrics.screenWidth*0.42,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   }

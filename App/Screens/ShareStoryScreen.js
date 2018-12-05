@@ -12,23 +12,23 @@ export default class ShareStoryScreen extends React.Component {
     visible: false,
     contacts: [
       {
-        image: Images.school1,
+        image: Images.dad,
         name: 'Dad',
         key: 0
       },
       {
-        image: Images.school1,
-        name: 'Dad',
+        image: Images.mom,
+        name: 'Mom',
         key: 1
       },
       {
-        image: Images.school1,
-        name: 'Dad',
+        image: Images.uncle,
+        name: 'Uncle',
         key: 2
       },
       {
-        image: Images.school1,
-        name: 'Dad',
+        image: Images.aunt,
+        name: 'Aunt',
         key: 3
       }
     ]
@@ -48,8 +48,12 @@ export default class ShareStoryScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <Text style={styles.headerText}>Share Story</Text>
+        <View style={styles.headerView}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Text style={styles.backButton}>{"<"}</Text>
+          </TouchableOpacity>
+          <Text style={styles.headerText}>Share Story</Text>
+        </View>
         <StoryBanner />
         <View style={styles.listContainer}>
           <Text style={styles.bodyText}>Who do you want to share with?</Text>
@@ -61,9 +65,9 @@ export default class ShareStoryScreen extends React.Component {
               <TouchableOpacity onPress={this.displayPopup}>
                 <View style={styles.contactView}>
                   <CircleImageView
-                    source={Images.school1}
+                    source={item.image}
                   />
-                  <Text style={styles.contactText}>Dad</Text>
+                  <Text style={styles.contactText}>{item.name}</Text>
                 </View>
               </TouchableOpacity>
             }
@@ -82,6 +86,17 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'flex-start',
   },
+  headerView: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  backButton: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginLeft: 20,
+    marginTop: 25,
+  },
   headerText: {
     fontSize: 36,
     fontWeight: 'bold',
@@ -90,7 +105,8 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop: 10,
   },
   row: {
     flexDirection: 'row',

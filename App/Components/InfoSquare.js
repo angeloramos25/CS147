@@ -5,7 +5,7 @@ import Metrics from '../Themes/Metrics';
 
 const InfoSquare = (props) => {
   return (
-      <View style={styles.infoSquare}>
+      <View style={[styles.infoSquare, {backgroundColor: this.props.color}]}>
         <Text style={styles.infoTitle}>{props.title}</Text>
         <Text style={styles.infoSubtitle}>{props.subtitle}</Text>
       </View>
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5CBD9B',
     borderRadius: 5,
     width: (Metrics.screenWidth - 40) / 2 - 5,
-    height: (Metrics.screenWidth - 40)*0.35,
+    height: (Metrics.screenWidth - 40)*0.3,
     justifyContent: 'flex-end',
   },
   infoTitle: {

@@ -6,41 +6,28 @@ import Metrics from '../Themes/Metrics';
 import StoryBanner from '../Components/StoryBanner';
 import InfoSquare from '../Components/InfoSquare';
 
-export default class MyStoryDetailsScreen extends React.Component {
+export default class BrowseStoryDetailsScreen extends React.Component {
 
   render() {
-    console.log(this.props.navigation.state.params);
-    const {color} = ;
     return (
       <View style={styles.container}>
-        <View style={styles.headerView}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <Text style={styles.backButton}>{"<"}</Text>
-          </TouchableOpacity>
-          <Text style={styles.headerText}>Story Details</Text>
-        </View>
-        <StoryBanner
-          title={this.props.navigation.state.params.title}
-          color={this.props.navigation.state.params.color}
-          />
+      <View style={styles.headerView}>
+        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+          <Text style={styles.backButton}>{"<"}</Text>
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Story Details</Text>
+      </View>
+        <StoryBanner />
         <View style={styles.infoContainer}>
-          <InfoSquare
-            title='8'
-            subtitle='pages'
-            color={this.props.navigation.state.params.color}/>
-          <InfoSquare
-            title='Oct 12'
-            subtitle='created'
-            color={this.props.navigation.state.params.color}/>
+          <InfoSquare title='8' subtitle='pages'/>
+          <InfoSquare title='Oct 12' subtitle='created'/>
+        </View>
+        <View style={styles.infoContainer}>
+          <InfoSquare title='8th' subtitle='grade'/>
+          <InfoSquare title='Mark' subtitle='author'/>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.onViewComments} style={[styles.button, {backgroundColor: color}]}>
-            <Text style={styles.buttonText}>View Comments</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("ShareStoryScreen")} style={[styles.button, {backgroundColor: color}]}>
-            <Text style={styles.buttonText}>Share Story</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.onReadStory} style={[styles.button, {backgroundColor: color}]}>
+          <TouchableOpacity onPress={this.onViewComments} style={styles.button}>
             <Text style={styles.buttonText}>Read Story</Text>
           </TouchableOpacity>
         </View>
@@ -78,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
   },

@@ -5,9 +5,9 @@ import Metrics from '../Themes/Metrics';
 
 const StoryBanner = () => {
   return (
-    <View style={styles.bannerView}>
+    <View style={[styles.bannerView, {backgroundColor: this.props.color}]}>
       <View style={{width: 0, flexGrow: 1, marginLeft: 20}}>
-        <Text style={styles.bannerText} numberOfLines={2}>A Fun Day At School</Text>
+        <Text style={styles.bannerText} numberOfLines={2}>{this.props.title}</Text>
       </View>
       <Image
         source={require('../Images/school1.png')}
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: 10,
-    marginBottom: 15
   },
   bannerText: {
     fontSize: 24,

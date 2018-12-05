@@ -1,54 +1,55 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+
 import Images from '../Themes/Images';
 
 import StoryHeader from '../Components/StoryHeader';
 import StoryCard from '../Components/StoryCard';
 
 
-export default class MyStoriesScreen extends React.Component {
+export default class BrowseStoriesScreen extends React.Component {
 
   state = {
     stories: [
       {
-        title: 'A Good School Day',
+        title: 'A Fun Day At School',
         image: Images.school1,
-        date: 'Oct 12',
+        author: 'Mark',
         color: '#5CBD9B',
         id: 0,
       },
       {
-        title: 'At the Park',
+        title: 'Keep My Head Up',
         image: Images.park,
-        date: 'Oct 11',
+        author: 'Kate',
         color: '#0984E3',
         id: 1,
       },
       {
-        title: 'A Sad Day',
+        title: 'Feeling Lonely',
         image: Images.city,
-        date: 'Oct 10',
+        author: 'Mary',
         color: '#FF5252',
         id: 1,
       },
       {
-        title: 'Frustrated with Everything',
+        title: 'Happy Day',
         image: Images.desk,
-        date: 'Oct 9',
+        author: 'Dante',
         color: '#A29BFE',
         id: 1,
       },
     ]
   }
 
-  onStoryPress(story) {
-    this.props.navigation.navigate("MyStoryDetailsScreen", story);
+  onStoryPress() {
+    this.props.navigation.navigate("BrowseStoryDetailsScreen");
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>My Stories</Text>
+        <Text style={styles.title}>Browse Stories</Text>
         <View style={styles.buttonRow}>
           <TouchableOpacity onPress={this.changeCategory} style={styles.button}>
             <Text style={styles.buttonText}>All</Text>
@@ -68,10 +69,11 @@ export default class MyStoriesScreen extends React.Component {
               <View style={styles.storyView}>
                 <StoryCard
                   title={item.title}
-                  onStoryPress={this.onStoryPress.bind(this,item)}
                   image={item.image}
-                  color={item.color}/>
-                <Text style={styles.dateText}>{item.date}</Text>
+                  color={item.color}
+                  onStoryPress={this.onStoryPress.bind(this)}
+                  />
+                <Text style={styles.authorText}>by {item.author}</Text>
               </View>
             }
             keyExtractor={item => item.id}
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  dateText: {
+  authorText: {
     marginTop: 10,
     fontSize: 18,
     fontWeight: 'bold',
