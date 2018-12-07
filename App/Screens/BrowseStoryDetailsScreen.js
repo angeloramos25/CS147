@@ -24,26 +24,26 @@ export default class BrowseStoryDetailsScreen extends React.Component {
           />
         <View style={styles.infoContainer}>
           <InfoSquare
-            title='8'
+            title={this.props.navigation.state.params.pages}
             subtitle='pages'
             color={this.props.navigation.state.params.color}/>
           <InfoSquare
-            title='Oct 12'
+            title={this.props.navigation.state.params.date}
             subtitle='created'
             color={this.props.navigation.state.params.color}/>
         </View>
         <View style={styles.infoContainer}>
           <InfoSquare
-            title='8th'
+            title={this.props.navigation.state.params.grade}
             subtitle='grade'
             color={this.props.navigation.state.params.color}/>
           <InfoSquare
-            title='Mark'
+            title={this.props.navigation.state.params.author}
             subtitle='author'
             color={this.props.navigation.state.params.color}/>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={this.onViewComments} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("ReadStoryScreen",this.props.navigation.state.params)} style={[styles.button, {backgroundColor: this.props.navigation.state.params.color}]}>
             <Text style={styles.buttonText}>Read Story</Text>
           </TouchableOpacity>
         </View>
