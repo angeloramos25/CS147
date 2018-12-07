@@ -13,7 +13,12 @@ export default class ChooseCharacterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.headerText}>Choose Character</Text>
+        <View style={styles.headerView}>
+          <Text style={styles.headerText}>Characters</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Text style={styles.exitButton}>X</Text>
+          </TouchableOpacity>
+        </View>
         <View style={{alignItems: 'center'}}>
           <FlatList
             data={[{image: Images.happy, key: 0}, {image: Images.mad, key: 1}, {image: Images.sad, key: 2},{image: Images.idea, key: 3} ]}
@@ -41,6 +46,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'flex-start',
+  },
+  headerView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  exitButton: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginTop: 25,
+    marginRight: 10,
   },
   headerText: {
     fontSize: 28,

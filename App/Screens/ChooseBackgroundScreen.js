@@ -15,7 +15,12 @@ export default class ChooseBackgroundScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.headerText}>Choose Background</Text>
+        <View style={styles.headerView}>
+          <Text style={styles.headerText}>Backgrounds</Text>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Text style={styles.exitButton}>X</Text>
+          </TouchableOpacity>
+        </View>
         <View style={{alignItems: 'center'}}>
           <FlatList
             data={[{image: Images.school1, key: 0}, {image: Images.park, key: 1}, {image: Images.desk, key: 2}, {image: Images.city, key: 3} ]}
@@ -43,6 +48,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'flex-start',
+  },
+  headerView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  exitButton: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginTop: 25,
+    marginRight: 10,
   },
   headerText: {
     fontSize: 28,
